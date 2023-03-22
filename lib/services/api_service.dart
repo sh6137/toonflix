@@ -36,7 +36,7 @@ class ApiService {
 
   static Future<List<WebtoonEpisodeModel>> getLatestEpisodesById(String id) async {
     List<WebtoonEpisodeModel> episodesInstances = [];
-    var url = Uri.https(baseUrl, id, {'q': '{http}'});
+    var url = Uri.https(baseUrl,"$id/episodes", {'q': '{http}'});
     final response = await http.get(url);
     if (response.statusCode == 200) {
       final episodes = jsonDecode(response.body);
